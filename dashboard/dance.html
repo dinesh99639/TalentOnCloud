@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TalentOnCloud</title>
+
+        <!-- jQuery 3.5.1 -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <!-- BootStrap 3.3.7 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Custom -->
+        <style type="text/css">
+            ::-webkit-scrollbar {
+                width: 7px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: rgba(103, 3, 255, 1);
+                /*box-shadow: inset 0 0 5px grey; */
+                /*border-radius: 10px;*/
+            }
+             
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0.8);
+                border-radius: 10px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                /*background: #b30000; */
+            }
+
+            body
+            {
+                background-image: linear-gradient( 109.2deg,  rgba(254,3,104,1) 9.3%, rgba(103,3,255,1) 89.5% );
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            .card
+            {
+                position: relative;
+                margin: 0 5px 0 5px;
+                background: rgba(255, 255, 255, 0.9);
+                /*padding: 40px;*/
+                box-sizing: border-box;
+                box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+                border-radius: 5px;
+            }
+            .card .title
+            {
+                text-align: center;
+                font-size: 20px;
+                padding-bottom: 10px;
+            }
+
+            .posts
+            {
+            }
+            .posts .post
+            {
+                margin-bottom: 30px;
+                background-color: white;
+            }
+            .post .auther
+            {
+                background-color: white;
+                font-size: 18px;
+                padding: 5px 20px;
+            }
+            .post .auther img
+            {
+                height: 30px;
+                border-radius: 50%;
+                margin-right: 5px;
+            }
+            .post audio
+            {
+                width: 100%;
+                border: none;
+                outline: none;
+                background: white;
+
+            }
+            .post .content img
+            {
+                width: 100%;
+            }
+            .post video
+            {
+                width: 100%;
+            }
+            .post .desc
+            {
+                padding: 15px;
+            }
+            .post .operations
+            {
+                background-color: white;
+                padding-right: 15px;
+            }
+            .post .operations .action
+            {
+                margin-left: 15px;
+                float: left;
+                cursor: pointer;
+            }
+            .post .operations .op_right .action
+            {
+                float: right;
+            }
+
+            .menu ul, .organize ul
+            {
+                padding: 0;
+            }
+            .menu ul a, .organize ul a
+            {
+                text-decoration: none;
+            }
+            .menu li, .organize li
+            {
+                list-style: none;
+                text-align: center;
+                padding: 5px;
+            }
+            .menu li:hover, .organize li:hover
+            {
+                background-color: lightgray;
+            }
+
+
+            .nocontrols::-webkit-media-controls {
+                display: none;
+            }
+        </style>
+        </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+                    <a class="navbar-brand" href="index.html">TalentOnCloud</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="navclick"><a href="../index.html">Home</a></li>
+                        <li class="active navclick"><a href="index.html">Dashboard</a></li>
+                        <li class="navclick"><a href="#">Contact us</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Full Name<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="navclick"><a href="#" data-toggle="modal" data-target="#myModal<?php echo $userdata['userid']; ?>">Profile</a></li>
+                                <li class="navclick"><a href="../index.html">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-sm-1"></div> -->
+                <div class="col-sm-3">
+                    <div class="menu card">
+                        <div class="title">Menu</div>
+                        <ul>
+                            <a href=""><li>Worldwide</li></a>
+                            <a href=""><li>Following</li></a>
+                            <a href="live.html"><li>Live</li></a>
+                            <a href="live.html"><li>Collab</li></a>
+                            <a href="music.html"><li>Music</li></a>
+                            <a href="dance.html"><li>Dance</li></a>
+                            <a href="art.html"><li>Art</li></a>
+                            <a href="dance.html"><li>Acting</li></a>
+                            <a href="dance.html"><li>Games</li></a>
+                            <a href=""><li>Learn</li></a>
+                            <a href=""><li>Challenges</li></a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="title">Posts</div>
+                        <div class="posts">
+                            <div class="post">
+                                <div class="auther"><img src="https://avatars2.githubusercontent.com/u/48937982?v=4" /> User 1</div>
+                                <div class="content">
+                                    <video class="video-fluid z-depth-1" loop controls>
+                                        <source src="media/videos/1.mp4" />
+                                    </video>
+                                </div>
+                                <div class="desc">Your description goes here.</div>
+                                <div class="operations">
+                                    <div class="row">
+
+                                        <div class="col-sm-6 op_left">
+                                            <div class="heart action" action="like">
+                                                <svg aria-label="Like" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
+                                            </div>
+                                            <div class="comment action">
+                                                <svg aria-label="Comment" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg>
+                                            </div>
+                                            <div class="share action">
+                                                <svg aria-label="Share Post" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-sm-6 op_right">
+                                            <div class="bootmark action">
+                                                <svg aria-label="Save" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="post">
+                                <div class="auther"><img src="https://avatars0.githubusercontent.com/u/50363676?v=4" /> User 2</div>
+                                <div class="content">
+                                    <video class="video-fluid z-depth-1" loop controls>
+                                        <source src="media/videos/2.mkv"  />
+                                    </video>
+                                </div>
+                                <div class="desc">Your description goes here.</div>
+                                <div class="operations">
+                                    <div class="row">
+
+                                        <div class="col-sm-6 op_left">
+                                            <div class="heart action" action="like">
+                                                <svg aria-label="Like" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>
+                                            </div>
+                                            <div class="comment action">
+                                                <svg aria-label="Comment" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path clip-rule="evenodd" d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z" fill-rule="evenodd"></path></svg>
+                                            </div>
+                                            <div class="share action">
+                                                <svg aria-label="Share Post" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"></path></svg>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-sm-6 op_right">
+                                            <div class="live action">
+                                                <svg height="20pt" viewBox="0 40 464 264" width="25pt" xmlns="http://www.w3.org/2000/svg"><path d="m.0703125 256.703125c.3828125 17.371094 14.5546875 31.261719 31.9296875 31.296875h400c17.671875 0 32-14.328125 32-32v-220.550781zm0 0" fill="#ff3051"/><path d="m464 32c0-17.671875-14.328125-32-32-32h-400c-17.671875 0-32 14.328125-32 32v224c0 .238281.0625.464844.0703125.703125l463.9296875-221.253906zm0 0" fill="#ff4764"/><g fill="#f1f2f2"><path d="m128 200h-56v-120c0-4.417969-3.582031-8-8-8s-8 3.582031-8 8v128c0 4.417969 3.582031 8 8 8h64c4.417969 0 8-3.582031 8-8s-3.582031-8-8-8zm0 0"/><path d="m400 88c4.417969 0 8-3.582031 8-8s-3.582031-8-8-8h-64c-4.417969 0-8 3.582031-8 8v128c0 4.417969 3.582031 8 8 8h64c4.417969 0 8-3.582031 8-8s-3.582031-8-8-8h-56v-48h40c4.417969 0 8-3.582031 8-8s-3.582031-8-8-8h-40v-48zm0 0"/><path d="m168 72c-4.417969 0-8 3.582031-8 8v128c0 4.417969 3.582031 8 8 8s8-3.582031 8-8v-128c0-4.417969-3.582031-8-8-8zm0 0"/><path d="m298.808594 72.503906c-1.988282-.746094-4.191406-.671875-6.125.207032-1.933594.878906-3.4375 2.492187-4.179688 4.480468l-39.816406 106.191406-33.046875-105.78125c-1.324219-4.222656-5.820313-6.566406-10.039063-5.242187-4.222656 1.324219-6.566406 5.820313-5.242187 10.039063l40 128c1.023437 3.261718 4.003906 5.507812 7.417969 5.601562h.222656c3.335938.003906 6.324219-2.066406 7.496094-5.191406l48-128c.746094-1.988282.671875-4.191406-.207032-6.125-.878906-1.933594-2.492187-3.4375-4.480468-4.179688zm0 0"/></g></svg>
+                                            </div>
+                                            <div class="bootmark action">
+                                                <svg aria-label="Save" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"></path></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="organize card">
+                        <div class="title">Organize Yours</div>
+                        <ul>
+                            <a href="manage.html"><li>Manage</li></a>
+                            <a href="create.html"><li>Live</li></a>
+                            <a href="create.html"><li>Collab</li></a>
+                            <a href="create.html"><li>Post</li></a>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-sm-1"></div> -->
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<script>
+
+    // Video On hover -> Display controls
+    $("video").prop("controls", false);
+    $("video").hover(function() {
+        $(this).prop("controls", true);
+    }, function() {
+        $(this).prop("controls", false);
+    });
+
+    $('.heart').click(function(){
+        if ($(this).attr('action')=="like")
+        {
+            $(this).attr('action', 'unlike');
+            $(this).html('<svg aria-label="Unlike" class="_8-yf5 " fill="#ed4956" height="24" viewBox="0 0 48 48" width="24"><path d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>');
+        }
+        else
+        {   
+            $(this).attr('action', 'like');
+            $(this).html('<svg aria-label="Like" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24"><path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path></svg>');
+        }
+    });
+</script>

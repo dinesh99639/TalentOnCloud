@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TalentOnCloud</title>
+
+        <!-- jQuery 3.5.1 -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <!-- BootStrap 3.3.7 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Custom -->
+        <style type="text/css">
+            body
+            {
+                background-image: linear-gradient( 109.2deg,  rgba(254,3,104,1) 9.3%, rgba(103,3,255,1) 89.5% );
+                background-size: cover;
+                background-attachment: fixed;
+            }
+
+            .login
+            {
+                position: relative;
+                margin: 60px 0;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                /*height: ght: 300px;*/
+                width: 22%;
+                min-width: 300px;
+                background: white;
+                padding: 40px;
+                box-sizing: border-box;
+                box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+                border-radius: 5px;
+                top: 250px;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            .login .text
+            {
+                position: relative;
+                margin-bottom: 50px;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .login .input input
+            {
+                position: relative;
+                /*border-radius: 10px;*/
+                width: 100%;
+                margin-bottom: 20px;
+                border: none;
+                border-bottom: 1px solid black;
+                outline: none;
+            }
+
+            .login .submit
+            {
+                position: relative;
+                /*width: 40px;*/
+                /*left: 30%;*/
+            }
+
+            .login .submit input[type="submit"]
+            {
+                position: relative;
+                width: 80%;
+                top: 10px;
+                left: 20px;
+                margin-bottom: 20px;
+                border: 1px solid black;
+                border-radius: 30px;
+                background-color: rgba(255,255,255,0.5);
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+                    <a class="navbar-brand" href="index.html">TalentOnCloud</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active navclick"><a href="../index.html">Home</a></li>
+                        <li class="navclick"><a href="#">Contact us</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- <?php
+                        if (isset($_SESSION['userid']))
+                        { ?>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $userdata['name']; ?><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li class="navclick"><a href="#" data-toggle="modal" data-target="#myModal<?php echo $userdata['userid']; ?>">Profile</a></li>
+                                    <li class="navclick"><a href="#">Extras</a></li>
+                                    <li class="navclick"><a href="logout.php">Logout</a></li>
+                                </ul>
+                            </li>
+                        <?php }
+                        else
+                        { ?> -->
+                        <li class="navclick"><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li class="navclick"><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="login">
+            <p class="text">Login</p>
+            <form method="post" action="#">
+                <div class="input"><input type="text" id="username" placeholder="Username" autocomplete="disable" required></div>
+                <div class="input"><input type="password" id="password" placeholder="Password" required></div>
+                <div class="submit"><input type="submit" id="login" value="Login"></div>
+            </form>
+        </div>
+    </body>
+
+</html>
+
+<script>
+    $('#login').click((e)=>{
+        e.preventDefault();
+        if($('#username').val()=='admin')
+        {
+            window.location.href="../admin/index.html";
+        }
+        else
+        {
+            window.location.href="../dashboard/index.html";
+        }
+    });
+</script>
